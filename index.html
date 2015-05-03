@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //Bu fonksiyon maalesef Türkçe karakterler ile çalışmıyor. Türkçe karakterlerin de charCodeAt metot değerini kapsamak gerekiyor.
+    var checkCharType = function (charToCheck) {
+        var returnValue = "O";
+        var charCode = charToCheck.charCodeAt(0);
+
+        if (charCode >= "A".charCodeAt(0) && charCode <= "Z".charCodeAt(0)) {
+            returnValue = "U";
+        } else if (charCode >= "a".charCodeAt(0) && charCode <= "z".charCodeAt(0)) {
+            returnValue = "L";
+        } else if (charCode >= "0".charCodeAt(0) && charCode <= "9".charCodeAt(0)) {
+            returnValue = "N";
+        }
+
+        return returnValue;
+    };
+
+    var myString = prompt("Lütfen bir şeyler yazınız");
+
+    switch (checkCharType(myString)) {
+        case "U":
+            document.write("İlk karakter büyük harf");
+            break;
+        case "L":
+            document.write("İlk karakter küçük harf");
+            break;
+        case "N":
+            document.write("İlk karakter sayı");
+            break;
+        default :
+            document.write("Ne yazdığını anlamadım");
+    }
+</script>
+</body>
+</html>
